@@ -179,9 +179,9 @@ const recentActivities = [
 
 export function RecentActivitySection() {
   return (
-    <section className="py-8 bg-gray-100">
+    <section className="py-8 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Recent Activity</h2>
+        <h2 className="text-2xl font-bold text-black mb-6 text-center">Recent Activity</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {recentActivities.map((activity) => (
             <RecentActivityCard key={activity.id} activity={activity} />
@@ -195,23 +195,21 @@ export function RecentActivitySection() {
 function RecentActivityCard({ activity }) {
   return (
     <CardContainer className="w-full">
-      <CardBody className="bg-white relative group/card hover:shadow-xl hover:shadow-emerald-500/[0.1] w-full h-auto rounded-xl p-4 border border-gray-200">
+      <CardBody className="bg-gray-100 relative group/card hover:shadow-xl hover:shadow-gray-300/[0.1] w-full h-auto rounded-xl p-4 border border-gray-200">
         <CardItem translateZ="20" className="flex items-center space-x-3 mb-3">
-          <Image
-            src={`/path-to-user-avatar-${activity.id}.jpg`}
-            alt={activity.user}
-            width={32}
-            height={32}
-            className="rounded-full"
-          />
+          <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
           <div>
             <CardItem
               translateZ="30"
-              className="text-base font-semibold text-gray-900"
+              className="text-base font-semibold text-black"
             >
               {activity.user} {activity.action}
             </CardItem>
-            <CardItem translateZ="25" className="text-xs text-gray-500">
+            <CardItem translateZ="25" className="text-xs text-gray-600">
               {activity.time}
             </CardItem>
           </div>
@@ -229,7 +227,7 @@ function RecentActivityCard({ activity }) {
 
         <CardItem
           translateZ="60"
-          className="text-lg font-bold text-gray-900 mb-2"
+          className="text-lg font-bold text-black mb-2"
         >
           {activity.businessName}
         </CardItem>
@@ -253,7 +251,7 @@ function RecentActivityCard({ activity }) {
         <div className="flex justify-between items-center mt-3">
           <CardItem
             translateZ="20"
-            className="flex items-center space-x-1 text-gray-500"
+            className="flex items-center space-x-1 text-gray-600"
           >
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
@@ -262,7 +260,7 @@ function RecentActivityCard({ activity }) {
           </CardItem>
           <CardItem
             translateZ="20"
-            className="flex items-center space-x-1 text-gray-500"
+            className="flex items-center space-x-1 text-gray-600"
           >
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />

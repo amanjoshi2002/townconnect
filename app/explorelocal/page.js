@@ -3,6 +3,7 @@
 import { useState, createContext, useContext, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
+import Popup from '../components/pop';
 
 const businesses = [
   { id: 1, name: "Joe's Diner", category: "Restaurants", rating: 4.5, image: "/images/hotel.jpg", description: "Classic American diner" },
@@ -107,6 +108,7 @@ export default function ExploreLocal() {
 
   return (
     <>
+    <Popup/>
       <Navbar />
       <div className="container mx-auto px-4 py-8 min-h-screen">
         <h1 className="text-3xl font-bold mb-6 text-white">Explore Local Businesses</h1>

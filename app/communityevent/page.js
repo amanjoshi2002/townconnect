@@ -64,13 +64,13 @@ const items = [
   {
     title: "Art in the Park",
     description: "Outdoor exhibition featuring works from local artists.",
-    header: <ImageContainer src="/images/art-in-park.jpg" alt="Art in the Park" />,
+    header: <ImageContainer src="/images/art.jpg" alt="Art in the Park" />,
     icon: <IconPalette className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Community Book Fair",
     description: "Discover new reads and meet local authors.",
-    header: <ImageContainer src="/images/book-fair.jpg" alt="Community Book Fair" />,
+    header: <ImageContainer src="/images/book1.jpg" alt="Community Book Fair" />,
     icon: <IconBook className="h-4 w-4 text-neutral-500" />,
   },
   {
@@ -82,19 +82,19 @@ const items = [
   {
     title: "Green Thumb Workshop",
     description: "Learn gardening tips and tricks from local experts.",
-    header: <ImageContainer src="/images/gardening-workshop.jpg" alt="Green Thumb Workshop" />,
+    header: <ImageContainer src="/images/garden.jpg" alt="Green Thumb Workshop" />,
     icon: <IconPlant2 className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Culinary Festival",
     description: "Taste diverse cuisines from local restaurants and food trucks.",
-    header: <ImageContainer src="/images/culinary-festival.jpg" alt="Culinary Festival" />,
+    header: <ImageContainer src="/images/culinary.jpg" alt="Culinary Festival" />,
     icon: <IconChefHat className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Family Fun Day",
     description: "A day filled with games, activities, and entertainment for all ages.",
-    header: <ImageContainer src="/images/family-fun-day.jpg" alt="Family Fun Day" />,
+    header: <ImageContainer src="/images/paint.jpg" alt="Family Fun Day" />,
     icon: <IconBalloon className="h-4 w-4 text-neutral-500" />,
   },
 ];
