@@ -1,15 +1,16 @@
-import Image from "next/image";
-import Navbar from './components/Navbar'; // Assuming you'll create this component
+import Hero from './components/Hero';
+import { RecentActivitySection } from './components/RecentActivitySection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
-      <Navbar />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold mb-8">Welcome to Yelp</h1>
-        <p className="text-xl mb-8">Discover great local businesses in your area.</p>
-        {/* You can add more content here */}
-      </main>
+    <div className="min-h-screen" style={{
+      background: 'rgb(2,0,36)',
+      background: 'linear-gradient(54deg, rgba(2,0,36,1) 0%, rgba(0,0,90,1) 40%, rgba(0,159,214,1) 75%, rgba(0,175,226,1) 100%, rgba(0,212,255,1) 100%)',
+      backgroundAttachment: 'fixed'
+    }}>
+      <Hero />
+      <RecentActivitySection />
+      {/* Rest of your page content */}
     </div>
   );
 }
