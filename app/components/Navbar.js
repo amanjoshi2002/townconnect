@@ -38,7 +38,7 @@ export default function Navbar({ className = '' }) {
           
           {/* Navigation Links */}
           <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-            <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Explore Local</a>
+            <a href="/explorelocal" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Explore Local</a>
             <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Business Profile</a>
             <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Community Events</a>
             <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Map View</a>
