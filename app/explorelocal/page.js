@@ -5,11 +5,11 @@ import Image from 'next/image';
 import Navbar from '../components/Navbar';
 
 const businesses = [
-  { id: 1, name: "Joe's Diner", category: "Restaurants", rating: 4.5, image: "/images/restaurant.jpg", description: "Classic American diner" },
-  { id: 2, name: "Main Street Books", category: "Retail", rating: 4.2, image: "/images/bookstore.jpg", description: "Independent bookstore" },
-  { id: 3, name: "City Gym", category: "Health", rating: 4.7, image: "/images/gym.jpg", description: "24/7 fitness center" },
-  { id: 4, name: "Local Theater", category: "Entertainment", rating: 4.0, image: "/images/theater.jpg", description: "Live performances and shows" },
-  { id: 5, name: "Quick Fix Auto", category: "Services", rating: 4.8, image: "/images/auto.jpg", description: "Reliable auto repair" },
+  { id: 1, name: "Joe's Diner", category: "Restaurants", rating: 4.5, image: "/images/hotel.jpg", description: "Classic American diner" },
+  { id: 2, name: "Main Street Books", category: "Retail", rating: 4.2, image: "/images/book.jpg", description: "Independent bookstore" },
+  { id: 3, name: "City Gym", category: "Health", rating: 4.7, image: "/images/gym.png", description: "24/7 fitness center" },
+  { id: 4, name: "Local Theater", category: "Entertainment", rating: 4.0, image: "/images/play.webp", description: "Live performances and shows" },
+  { id: 5, name: "Quick Fix Auto", category: "Services", rating: 4.8, image: "/images/autorepair.jpg", description: "Reliable auto repair" },
   // Add more businesses as needed
 ];
 
@@ -108,17 +108,17 @@ export default function ExploreLocal() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 min-h-screen">
         <h1 className="text-3xl font-bold mb-6 text-white">Explore Local Businesses</h1>
         
-        <div className="mb-6 flex justify-between items-center">
+        <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div>
-            <label htmlFor="category" className="mr-2">Category:</label>
+            <label htmlFor="category" className="mr-2 text-white">Category:</label>
             <select
               id="category"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="border rounded p-2"
+              className="border rounded p-2 bg-white"
             >
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
@@ -126,12 +126,12 @@ export default function ExploreLocal() {
             </select>
           </div>
           <div>
-            <label htmlFor="sort" className="mr-2">Sort by:</label>
+            <label htmlFor="sort" className="mr-2 text-white">Sort by:</label>
             <select
               id="sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="border rounded p-2"
+              className="border rounded p-2 bg-white"
             >
               <option value="rating">Rating</option>
               <option value="name">Name</option>
@@ -139,23 +139,24 @@ export default function ExploreLocal() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredBusinesses.map(business => (
-            <CardContainer key={business.id} className="w-full h-full">
-              <CardBody className="border rounded-lg overflow-hidden shadow-lg bg-white">
-                <CardItem translateZ="100">
+            <CardContainer key={business.id} className="w-full h-full" containerClassName="h-full">
+              <CardBody className="border rounded-lg overflow-hidden shadow-lg bg-white h-full flex flex-col">
+                <CardItem translateZ="100" className="h-48 w-full relative">
                   <Image
                     src={business.image}
                     alt={business.name}
-                    width={400}
-                    height={200}
-                    className="w-full h-48 object-cover"
+                    layout="fill"
+                    objectFit="cover"
                   />
                 </CardItem>
-                <div className="p-4">
-                  <CardItem translateZ="50" as="h2" className="text-xl font-semibold mb-2">{business.name}</CardItem>
-                  <CardItem translateZ="60" as="p" className="text-gray-600 mb-2">{business.description}</CardItem>
-                  <div className="flex justify-between items-center">
+                <div className="p-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <CardItem translateZ="50" as="h2" className="text-xl font-semibold mb-2">{business.name}</CardItem>
+                    <CardItem translateZ="60" as="p" className="text-gray-600 mb-2">{business.description}</CardItem>
+                  </div>
+                  <div className="flex justify-between items-center mt-auto">
                     <CardItem translateZ="40" as="span" className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
                       {business.category}
                     </CardItem>

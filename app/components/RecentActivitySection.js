@@ -128,7 +128,7 @@ const recentActivities = [
     time: "Just now",
     businessName: "Thuy's Bait And Tackle",
     review: "Great brick and mortar bait shop. Everything you need such as live bait, tackle, and equipment.",
-    imageSrc: "/path-to-shop-image-1.jpg",
+    imageSrc: "/images/hotel.jpg",
   },
   {
     id: 2,
@@ -137,7 +137,7 @@ const recentActivities = [
     time: "2 hours ago",
     businessName: "Joe's Diner",
     review: "Best pancakes in town! The atmosphere is cozy and the staff is friendly.",
-    imageSrc: "/path-to-shop-image-2.jpg",
+    imageSrc: "/images/dineee2.webp",
   },
   {
     id: 3,
@@ -146,7 +146,7 @@ const recentActivities = [
     time: "Yesterday",
     businessName: "City Gym",
     review: "Great equipment and clean facilities. The trainers are very helpful.",
-    imageSrc: "/path-to-shop-image-3.jpg",
+    imageSrc: "/images/gym.png",
   },
   {
     id: 4,
@@ -155,7 +155,7 @@ const recentActivities = [
     time: "2 days ago",
     businessName: "Green Leaf Bookstore",
     review: "A book lover's paradise! They have an amazing selection of both new and used books.",
-    imageSrc: "/path-to-shop-image-4.jpg",
+    imageSrc: "/images/book.jpg",
   },
   {
     id: 5,
@@ -164,7 +164,7 @@ const recentActivities = [
     time: "3 days ago",
     businessName: "Tasty Thai",
     review: "Updated: The owner reached out and the service has greatly improved. Food is still amazing!",
-    imageSrc: "/path-to-shop-image-5.jpg",
+    imageSrc: "/images/tasty.jpg",
   },
   {
     id: 6,
@@ -173,7 +173,7 @@ const recentActivities = [
     time: "4 days ago",
     businessName: "Pet Paradise",
     review: "Fantastic pet store with a wide variety of supplies. The staff is knowledgeable and friendly.",
-    imageSrc: "/path-to-shop-image-6.jpg",
+    imageSrc: "/images/pet.jpg",
   },
 ];
 

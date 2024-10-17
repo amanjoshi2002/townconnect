@@ -6,9 +6,9 @@ import Navbar from './Navbar';
 
 const images = [
   '/images/bus.jpg',
-  '/images/farm.jpg',
-  '/images/boat.jpg',
-  // Add more image paths as needed
+  '/images/funds.jpg',
+  '/images/fruits.jpg',
+  '/images/men.jpg'
 ];
 
 const marathiText = [

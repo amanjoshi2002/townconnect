@@ -1,10 +1,27 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Navbar({ className = '' }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/explorelocal", text: "Explore Local" },
+    { href: "/", text: "Start A Project" },
+    { href: "/communityevent", text: "Community Events" },
+    { href: "#", text: "About" },
+  ];
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <nav className={`bg-transparent ${className}`}>
@@ -12,17 +29,20 @@ export default function Navbar({ className = '' }) {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex-shrink-0 -ml-4">
-            <Image
+           <a href="/">
+           <Image
               src="/images/logo.png"
               alt="TownConnect"
               width={240}
               height={120}
               className="object-contain"
             />
+            </a>
+            
           </div>
           
-          {/* Search Bar */}
-          <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-start">
+          {/* Search Bar - Hidden on mobile */}
+          <div className="hidden md:flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start">
             <div className="max-w-lg w-full lg:max-w-xs">
               <label htmlFor="search" className="sr-only">Search</label>
               <div className="relative">
@@ -36,12 +56,13 @@ export default function Navbar({ className = '' }) {
             </button>
           </div>
           
-          {/* Navigation Links */}
+          {/* Navigation Links - Hidden on mobile */}
           <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-            <a href="/explorelocal" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Explore Local</a>
-            <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Business Profile</a>
-            <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Community Events</a>
-            <a href="#" className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Map View</a>
+            {navLinks.map((link, index) => (
+              <Link key={index} href={link.href} className="text-white hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                {link.text}
+              </Link>
+            ))}
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -63,8 +84,59 @@ export default function Navbar({ className = '' }) {
               )}
             </div>
           </div>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {/* Icon when menu is closed */}
+              <svg
+                className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              {/* Icon when menu is open */}
+              <svg
+                className={`${isMobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile menu, show/hide based on menu state */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50">
+          {/* Black gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-95"></div>
+          
+          {/* Menu content */}
+          <div className="relative z-50 px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((link, index) => (
+              <Link key={index} href={link.href} className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                {link.text}
+              </Link>
+            ))}
+            <a href="#" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">User Profile</a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
